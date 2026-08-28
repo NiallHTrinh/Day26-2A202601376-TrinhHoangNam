@@ -3,6 +3,9 @@ import asyncio
 import httpx
 import os
 from mcp.server.fastmcp import FastMCP
+from dotenv import load_dotenv
+
+load_dotenv()  # doc WEATHERAPI_KEY tu file .env cung thu muc
 
 # Initialize FastMCP server
 port = int(os.getenv("PORT", 8085))

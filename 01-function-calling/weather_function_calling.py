@@ -11,10 +11,12 @@ Cách chạy:
 
 from google import genai
 from google.genai import types
+from dotenv import load_dotenv
 
+load_dotenv()  # đọc GOOGLE_API_KEY (Gemini API key, lấy tại aistudio.google.com/apikey) từ file .env cùng thư mục
 client = genai.Client()
 
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-3.6-flash"
 
 SYSTEM_INSTRUCTION = (
     "Bạn là trợ lý thời tiết thân thiện, trả lời bằng tiếng Việt tự nhiên. "
