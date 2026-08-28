@@ -5,6 +5,9 @@ Successfully connects to custom MCP HTTP endpoints!
 from google.adk import Agent
 from google.adk.tools.mcp_tool.mcp_toolset import McpToolset, StreamableHTTPConnectionParams
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()  # doc GOOGLE_API_KEY tu .env cung thu muc (phong khi ADK CLI khong tu load)
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -32,7 +35,7 @@ try:
     # Create the agent with remote MCP tools
     root_agent = Agent(
         name="weather_agent",
-        model="gemini-2.5-flash",
+        model="gemini-3.6-flash",
         tools=[weather_tools],
     )
     logger.info("✅ Weather agent initialized with remote MCP tools:")
@@ -51,6 +54,6 @@ except Exception as e:
     logger.warning("⚠️  Creating fallback agent without MCP tools")
     root_agent = Agent(
         name="weather_agent",
-        model="gemini-2.5-flash",
+        model="gemini-3.6-flash",
     )
 
